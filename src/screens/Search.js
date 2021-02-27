@@ -5,7 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function Search() {
   return (
     <View style={styles.container}>
-      <Text>Opennnnn  </Text>
+      <Text>Opennnnnmmm  </Text>
       <StatusBar style="auto" />
     </View>
   );

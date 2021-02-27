@@ -4,8 +4,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import Search from "../screens/Search";
 import Welcome from "../screens/Welcome";
-
-
+import { COLORS } from '../styles/colors';
+import { Colors } from "react-native/Libraries/NewAppScreen";
 
 const Tab = createBottomTabNavigator();
 export default function BottomNavigator() {
@@ -13,7 +13,7 @@ export default function BottomNavigator() {
       <NavigationContainer>
         <Tab.Navigator
         screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
+          tabBarIcon: ({ focused, size }) => {
             let iconName;
 
             if (route.name === 'Welcome') {
@@ -23,12 +23,12 @@ export default function BottomNavigator() {
             } else if (route.name === 'Search') {
               iconName = 'search' ;
             }
-            return <Ionicons name={iconName} size={size} color={"#00a2ed"} />;
+            return <Ionicons name={iconName} size={size} color={COLORS.blue} />;
           },
         })}
         tabBarOptions={{
-          activeTintColor: 'black',
-          inactiveTintColor: 'gray',
+          activeTintColor: COLORS.black,
+          inactiveTintColor: COLORS.light_grey,
         }}>
           <Tab.Screen name="Welcome" component={Welcome} />
           <Tab.Screen name="Search" component={Search} />
