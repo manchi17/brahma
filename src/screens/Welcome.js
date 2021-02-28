@@ -1,23 +1,21 @@
 import React from "react";
-import { View, Text, StyleSheet,SafeAreaView  } from "react-native";
-
+import { View, Text, StyleSheet, SafeAreaView } from "react-native";
 
 export default function Welcome() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-     <View
-          style={{
-            alignItems: "center",
-            flex: 8.5,
-            justifyContent: "center",
-          }}
-        >
-          <Text style={styles.line2}>Looking for address?</Text>
-          <Text style={styles.line3}>
-          you can find address of person from here
-          </Text>
-        </View>
-     
+      <View
+        style={{
+          alignItems: "center",
+          flex: 8.5,
+          justifyContent: "center",
+        }}
+      >
+        <Text style={styles.line2}>Looking for breweries of a state?</Text>
+        <Text style={styles.line3}>
+          you can find address of brewerie from here
+        </Text>
+      </View>
     </SafeAreaView>
   );
 }
