@@ -1,29 +1,28 @@
-import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
-import { createLogger } from 'redux-logger';
-import { persistReducer, persistStore } from 'redux-persist';
-import hardSet from 'redux-persist/lib/stateReconciler/hardSet';
-import sessionStorage from 'redux-persist/es/storage/session';
-import thunkMiddleware from 'redux-thunk';
-import person from '../ducks/person';
-
+import { applyMiddleware, combineReducers, compose, createStore } from "redux";
+import { createLogger } from "redux-logger";
+import { persistReducer, persistStore } from "redux-persist";
+import hardSet from "redux-persist/lib/stateReconciler/hardSet";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import thunkMiddleware from "redux-thunk";
+import brewerie from "../ducks/brewerie";
 
 const rootPersistConfig = {
-    key: 'root',
-    storage:  sessionStorage,
-    stateReconciler: hardSet
+  key: "root",
+  storage: AsyncStorage,
+  stateReconciler: hardSet,
 };
 
 const loggerMiddleware = createLogger({
-    predicate: (getState, action) => __DEV__
+  predicate: (getState, action) => __DEV__,
 });
 
 const rootReducer = combineReducers({
-    person
+  brewerie,
 });
 
 const store = createStore(
-    persistReducer(rootPersistConfig, rootReducer),
-    compose(applyMiddleware(loggerMiddleware, thunkMiddleware))
+  persistReducer(rootPersistConfig, rootReducer),
+  compose(applyMiddleware(loggerMiddleware, thunkMiddleware))
 );
 const persistor = persistStore(store);
 
